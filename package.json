@@ -73,7 +73,7 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
     "engines": {
-      "node": "v20.1.0"
+      "node": ">=18 <20"
     }
   }
 }
