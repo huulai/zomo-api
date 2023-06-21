@@ -17,7 +17,7 @@ export class SupertokensService {
       appInfo: {
         appName: configService.get('APP_NAME'),
         apiDomain: configService.get('API_DOMAIN'),
-        websiteDomain: configService.get('WEBSITE_DOMAIN'),
+        websiteDomain: 'https://zomo.onrender.com',
         apiBasePath: '/auth',
         websiteBasePath: '/auth',
       },
