@@ -1,5 +1,5 @@
 import { PrismaService } from './../../prisma/prisma.service';
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import supertokens from 'supertokens-node';
 import Session from 'supertokens-node/recipe/session';
 import ThirdParty from 'supertokens-node/recipe/thirdparty';
@@ -13,11 +13,14 @@ export class SupertokensService {
     private configService: ConfigService,
     private prisma: PrismaService,
   ) {
+    const logger = new Logger('WEBSITE_DOMAIN');
+    logger.log(configService.get('WEBSITE_DOMAIN'));
+
     supertokens.init({
       appInfo: {
         appName: configService.get('APP_NAME'),
         apiDomain: configService.get('API_DOMAIN'),
-        websiteDomain: 'http://localhost:5173',
+        websiteDomain: configService.get('WEBSITE_DOMAIN'),
         apiBasePath: '/auth',
         websiteBasePath: '/auth',
       },
